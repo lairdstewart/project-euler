@@ -5,15 +5,12 @@
  */
 public class P1 {
     public static void main(String args[]) {
-        int n = 10;
-        for (int i = 0, limit = 10; i < n; i++, limit *= 10) {
-            long sum = 0;
-            for (int j = 0; j < limit; j++) {
-                if (j % 3 == 0 || j % 5 == 0) {
-                    sum += j;
-                }
+        long sum = 0;
+        for (int j = 0; j < 1000; j++) {
+            if (j % 3 == 0 || j % 5 == 0) {
+                sum += j;
             }
-            System.out.println(sum);
         }
+        System.out.println(sum);
     }
 }
