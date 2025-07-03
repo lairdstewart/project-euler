@@ -5,7 +5,21 @@ two terms. By starting with 1 and 2, the first 10 terms will be
 By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 -}
+
+p2a :: Integer
+p2a = sum $ filter even $ takeWhile (< 4000000) fibs
+
+fibs :: [Integer]
 fibs = 1 : 2 : zipWith (+) fibs (tail fibs)
 
-main :: IO ()
-main = print $ sum $ filter even $ takeWhile (< 4000000) fibs
+p2b :: Integer
+p2b = fibSum 4000000
+
+fibSum :: Integer -> Integer
+fibSum n = ifibSum 1 2 n 2
+
+ifibSum :: Integer -> Integer -> Integer -> Integer -> Integer
+ifibSum a b n sum
+  | n < a = sum
+  | even (a + b) = ifibSum b (a + b) n (sum + a + b)
+  | otherwise = ifibSum b (a + b) n sum
