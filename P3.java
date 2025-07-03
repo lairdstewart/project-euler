@@ -7,7 +7,6 @@ import java.util.HashSet;
 public class P3 {
     public static void main(String[] args) {
         long n = 600851475143L;
-        n = 77L;
         long largestPrimeFactor = 1;
         HashSet<Long> primeFactors = new HashSet<>();
         for (long i = 2; i < Math.sqrt(n); i++) {
